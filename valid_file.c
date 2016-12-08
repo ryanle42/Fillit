@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "make_3d_block.c"
 
 int     valid_file(char *file)
 {
@@ -49,7 +50,26 @@ int     valid_file(char *file)
 
 int main()
 {
+    int i;
+    int j;
+    char ***blocks;
+
+    i = 0;
     char *file = "...#\n.#.#\n....\n.#..\n\n...#\n....\n..#.\n.##.\n\n";
-    printf("%i\n",valid_file(file));
+    if (valid_file(file))
+    {
+        blocks = make_blocks(file);
+        while (i < 2)
+        {
+            j = 0;
+            while (j < 4)
+            {
+                printf("%s\n", blocks[i][j]);
+                j++;
+            }
+            printf("\n");
+            i++;
+        }
+    }
     return (1);
 }
