@@ -17,7 +17,7 @@ int count_box(char *file)
     return (count / 5);
 }
 
-char ***file_to_block(char ***box, char *file, int block_num)
+char ***file_to_block(char ***box, char *file, int box_count)
 {
     int i;
     int j;
@@ -55,12 +55,12 @@ char ***make_box(char *file)
     int i;
     int j;
     int k;
-    int block_num;
+    int box_count;
 
-    block_num = count_box(file);
-    box = (char ***)malloc(sizeof(char **) * block_num);
+    box_count = count_box(file);
+    box = (char ***)malloc(sizeof(char **) * box_count);
     i = 0;
-    while (i < block_num)
+    while (i < box_count)
     {
         box[i] = (char **)malloc(sizeof(char *) * 4);
         j = 0;
@@ -71,5 +71,5 @@ char ***make_box(char *file)
         }
         i++;
     }
-  return (file_to_block(box, file, block_num));
+  return (file_to_block(box, file, box_count));
 }
