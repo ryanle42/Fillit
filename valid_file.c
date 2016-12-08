@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "make_3d_block.c"
+#include "valid_box.c"
 
 int     valid_file(char *file)
 {
@@ -52,24 +53,25 @@ int main()
 {
     int i;
     int j;
-    char ***blocks;
+    char ***box;
 
     i = 0;
-    char *file = "...#\n.#.#\n....\n.#..\n\n...#\n....\n..#.\n.##.\n\n";
+    char *file = "...#\n.###\n....\n....\n\n....\n..#.\n..#.\n.##.\n\n";
     if (valid_file(file))
     {
-        blocks = make_blocks(file);
+        box = make_box(file);
         while (i < 2)
         {
             j = 0;
             while (j < 4)
             {
-                printf("%s\n", blocks[i][j]);
+                printf("%s\n", box[i][j]);
                 j++;
             }
             printf("\n");
             i++;
         }
     }
+    printf("%i\n", valid_all_box(box, 2));
     return (1);
 }
