@@ -56,7 +56,7 @@ int main()
     char ***box;
 
     i = 0;
-    char *file = "...#\n.###\n....\n....\n\n....\n..#.\n..#.\n.##.\n\n";
+    char *file = "...#\n.#.#\n....\n.#..\n\n....\n..#.\n..#.\n.##.\n\n";
     if (valid_file(file))
     {
         box = make_box(file);
@@ -71,7 +71,7 @@ int main()
             printf("\n");
             i++;
         }
+        printf("%i\n", valid_all_box(box, 2));
     }
-    printf("%i\n", valid_all_box(box, 2));
     return (1);
 }
