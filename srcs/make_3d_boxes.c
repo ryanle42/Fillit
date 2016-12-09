@@ -13,7 +13,7 @@ int count_box(char *file)
             count++;
         i++;
     }
-    return (count / 5);
+    return ((count + 1) / 5);
 }
 
 char ***file_to_block(char ***box, char *file)

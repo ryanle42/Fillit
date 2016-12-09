@@ -19,7 +19,7 @@ int valid_box(char **box)
             if (box[i][k] == '#')
             {
                 touch = 0;
-                if (k > 1 && box[i][k - 1] == '#')
+                if (k > 0 && box[i][k - 1] == '#')
                     touch++;
                 if (k < 3 && box[i][k + 1] == '#')
                     touch++;

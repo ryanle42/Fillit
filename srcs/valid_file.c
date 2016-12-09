@@ -39,6 +39,10 @@ int     valid_file(char *file)
         }
         if (bcount != 4)
             return (0);
+        if (!file[i])
+            return (1);
+        if (file[i] == '\n' && !file[i + 1])
+            return (0);
         if (file[i] == '\n')
             i++;
         else
