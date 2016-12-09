@@ -1,3 +1,4 @@
+#include "../includes/tetris.h"
 int valid_box(char **box)
 {
     int i;

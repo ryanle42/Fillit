@@ -1,5 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "../includes/tetris.h"
 
 int count_box(char *file)
 {
@@ -17,7 +16,7 @@ int count_box(char *file)
     return (count / 5);
 }
 
-char ***file_to_block(char ***box, char *file, int box_count)
+char ***file_to_block(char ***box, char *file)
 {
     int i;
     int j;
@@ -54,7 +53,6 @@ char ***make_box(char *file)
     char ***box;
     int i;
     int j;
-    int k;
     int box_count;
 
     box_count = count_box(file);
@@ -71,5 +69,5 @@ char ***make_box(char *file)
         }
         i++;
     }
-  return (file_to_block(box, file, box_count));
+  return (file_to_block(box, file));
 }

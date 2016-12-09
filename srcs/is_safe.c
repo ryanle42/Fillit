@@ -1,3 +1,4 @@
+#include "../includes/tetris.h"
 int get_board_size(char *board)
 {
     int i;
@@ -32,7 +33,6 @@ int     is_safe(char *board, char **piece, int pos, int size)
     if (board[pos] != '.')
         return (0);
     block--;
-    int l = 1;
     while (block > 0 && (pos < ((size * size) + size)))
     {
         if (j == 3)
