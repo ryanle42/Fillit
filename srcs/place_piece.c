@@ -1,16 +1,18 @@
 #include "tetris.h"
 
-char    *place_piece(char *board, char **piece, int pos, int size, int order)
+char    *place_piece(char *board, char **piece, int pos, int order)
 {
     int block;
     int i;
     int j;
     int k;
-    block = 4;
+    int size;
 
+    block = 4;
     i = 0;
     j = 0;
     k = 0;
+    size = get_board_size(board);
     while (piece[i][j] != '#')
     {
         j++;
