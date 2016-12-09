@@ -1,4 +1,4 @@
-static int get_board_size(char *board)
+int get_board_size(char *board)
 {
     int i;
     
