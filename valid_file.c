@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "make_3d_block.c"
+#include "make_3d_boxes.c"
 #include "valid_box.c"
-
+#include "is_safe.c"
 int     valid_file(char *file)
 {
     int lcount;
@@ -54,13 +54,16 @@ int main()
     int i;
     int j;
     char ***box;
+    char ***board;
 
     i = 0;
-    char *file = "...#\n.#.#\n....\n.#..\n\n....\n..#.\n..#.\n.##.\n\n";
+    char *file = "...#\n.###\n....\n....\n\n....\n..#.\n..#.\n.##.\n\n....\n.##.\n.##.\n....\n\n.#..\n###.\n....\n....\n\n";
+    //char *newboard = "...\n...\n...\n";
+    char    *newboard = "#####\n##.##\n##.##\n#..##\n#####\n";
     if (valid_file(file))
     {
         box = make_box(file);
-        while (i < 2)
+        while (i < 4)
         {
             j = 0;
             while (j < 4)
@@ -71,7 +74,12 @@ int main()
             printf("\n");
             i++;
         }
-        printf("%i\n", valid_all_box(box, 2));
+        //printf("%i\n", valid_all_box(box, 2));
     }
+    else{
+        printf("invalid file\n");
+    }
+    printf("%s", newboard);
+    printf("%i\n", is_safe(newboard, box[1], 8, 5));
     return (1);
 }
