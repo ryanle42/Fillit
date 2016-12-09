@@ -41,8 +41,13 @@ $(NAME): $(OFILES)
 	$(CC) -c ./srcs/make_2d_box.c
 
 clean:
-	rm -rf $(NAME)
+	rm -rf ./bin
 
-re: clean
+fclean: clean
+	rm tetris
+
+re: fclean
 	make all
- 
+
+bin: re
+	make clean
