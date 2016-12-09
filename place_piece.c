@@ -1,4 +1,5 @@
-char    *place_piece(char *board, char **piece, int pos, int size)
+#include "../includes/tetris.h"
+char    *place_piece(char *board, char **piece, int pos, int size, int order)
 {
     int block;
     int i;
@@ -18,7 +19,7 @@ char    *place_piece(char *board, char **piece, int pos, int size)
             i++;
         }
     }
-    board[pos] = '$';
+    board[pos] = order + 64;
     block--;
     while (block > 0 && (pos < ((size * size) + size)))
     {
@@ -40,7 +41,7 @@ char    *place_piece(char *board, char **piece, int pos, int size)
         //printf("k: %i\n", k);
         pos += (k + 1);
         //printf("pos: %i\n", pos);
-        board[pos] = '$';
+        board[pos] = order + 64;
         k = 0;
         block--;
     } 
