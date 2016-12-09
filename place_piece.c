@@ -1,14 +1,4 @@
-static int get_board_size(char *board)
-{
-    int i;
-    
-    i = 0;
-    while (board[i] != '\n')
-        i++;
-    return (i);
-}
-
-int     is_safe(char *board, char **piece, int pos, int size)
+char    *place_piece(char *board, char **piece, int pos, int size)
 {
     int block;
     int i;
@@ -28,11 +18,8 @@ int     is_safe(char *board, char **piece, int pos, int size)
             i++;
         }
     }
-    printf("pos: %i\n", pos);
-    if (board[pos] != '.')
-        return (0);
+    board[pos] = '$';
     block--;
-    int l = 1;
     while (block > 0 && (pos < ((size * size) + size)))
     {
         if (j == 3)
@@ -50,13 +37,12 @@ int     is_safe(char *board, char **piece, int pos, int size)
                 pos += (size - 4);
            }
         }
-        printf("k: %i\n", k);
+        //printf("k: %i\n", k);
         pos += (k + 1);
-        printf("pos: %i\n", pos);
-        if (board[pos] != '.')
-            return (0);
+        //printf("pos: %i\n", pos);
+        board[pos] = '$';
         k = 0;
         block--;
     } 
-    return (1);
+    return (board);
 }

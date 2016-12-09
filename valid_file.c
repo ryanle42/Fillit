@@ -2,6 +2,8 @@
 #include "make_3d_boxes.c"
 #include "valid_box.c"
 #include "is_safe.c"
+#include "place_piece.c"
+
 int     valid_file(char *file)
 {
     int lcount;
@@ -57,9 +59,10 @@ int main()
     char ***board;
 
     i = 0;
-    char *file = "...#\n.###\n....\n....\n\n....\n..#.\n..#.\n.##.\n\n....\n.##.\n.##.\n....\n\n.#..\n###.\n....\n....\n\n";
-    //char *newboard = "...\n...\n...\n";
-    char    *newboard = "#####\n##.##\n##.##\n#..##\n#####\n";
+    char *file = "...#\n.###\n....\n....\n\n....\n...#\n...#\n..##\n\n....\n.##.\n.##.\n....\n\n.#..\n###.\n....\n....\n\n";
+    //char newboard[100] = "...\n...\n...\n";
+    //char    newboard[100] = "#####\n##.##\n##.##\n#..##\n#####\n";
+    char newboard[100] = ".....\n.....\n.....\n.....\n.....\n";
     if (valid_file(file))
     {
         box = make_box(file);
@@ -79,7 +82,11 @@ int main()
     else{
         printf("invalid file\n");
     }
+    int f;
+    scanf("%i", &f);
+    if (is_safe(newboard, box[f], 8, 5))
+        printf("%s\n", place_piece(newboard, box[f], 8, 5));
+    newboard[8] = '%';
     printf("%s", newboard);
-    printf("%i\n", is_safe(newboard, box[1], 8, 5));
     return (1);
 }
