@@ -1,4 +1,5 @@
-#include "../includes/tetris.h"
+#include "tetris.h"
+
 char    *place_piece(char *board, char **piece, int pos, int size, int order)
 {
     int block;

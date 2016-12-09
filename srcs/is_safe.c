@@ -1,4 +1,5 @@
-#include "../includes/tetris.h"
+#include "tetris.h"
+
 int get_board_size(char *board)
 {
     int i;

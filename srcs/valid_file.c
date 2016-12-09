@@ -1,4 +1,4 @@
-#include "../includes/tetris.h"
+#include "tetris.h"
 
 int     valid_file(char *file)
 {
