@@ -1,29 +1,27 @@
 #include "tetris.h"
 
-char **make_two_Dim(char *onedim)
+char **make_two_Dim(char *onedim, int i)
 {
     char **box;
-    int i;
-    int j;
     int k;
+    int j;
     
-    i = 0;
     k = 0;
     box = (char **)malloc(sizeof(char *) * 4);
-    while (i < 4)
+    while (k < 4)
     {
         j = 0;
-        box[i] = (char *)malloc(sizeof(char) * 5);
+        box[k] = (char *)malloc(sizeof(char) * 5);
         while (j < 4)
         {
-            box[i][j] = onedim[k];
+            box[k][j] = onedim[i];
             j++;
-            k++;
+            i++;
         }
-        box[i][j] = '\0';
-        while (onedim[k] == '\n')
-            k++;
-        i++;
+        box[k][j] = '\0';
+        while (onedim[i] == '\n')
+            i++;
+        k++;
     }
     return (box);
 }

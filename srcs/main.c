@@ -59,7 +59,7 @@ int main()
     {
         box_count = count_box(file);
         printf("valid file\n");
-        box = make_box(file);
+        box = make_3d_box(file);
         while (i < box_count)
         {
             j = 0;

@@ -3,7 +3,7 @@
     DOES NOT WORK!!
     DO NOT USE!!
 */
-
+/*
 char **rand_piece()
 {
     int i;
@@ -35,4 +35,4 @@ char **rand_piece()
         }
     }
     return (NULL);
-}
+}*/
