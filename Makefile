@@ -3,7 +3,7 @@ NAME = tetris
 CC = gcc -Wall -Werror -Wextra -I includes
 
 OFILES = ./place_piece.o ./is_safe.o ./valid_box.o ./valid_file.o ./main.o ./make_3d_boxes.o \
-			./2d_to_1d.o ./random_piece_gen.o ./make_2d_box.o
+			./2d_to_1d.o ./random_piece_gen.o ./make_2d_box.o ./file_reader.o
 
 all: $(NAME)
 
@@ -40,11 +40,14 @@ $(NAME): $(OFILES)
 ./make_2d_box.o: ./srcs/make_2d_box.c
 	$(CC) -c ./srcs/make_2d_box.c
 
+./file_reader.o: ./srcs/file_reader.c
+	$(CC) -c ./srcs/file_reader.c
 clean:
 	rm -rf ./bin
 
 fclean: clean
 	rm tetris
+	rm tetriminos_file
 
 re: fclean
 	make all

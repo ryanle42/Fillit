@@ -19,5 +19,7 @@ char ***make_3d_box(char *file);
 char **rand_piece();
 char *d2_to_d1(char **box);
 char **make_two_Dim(char *onedim, int i);
+int		file_len(char *path);
+char	*filetostr(char *path, int file_length);
 
 #endif
