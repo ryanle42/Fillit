@@ -19,13 +19,15 @@ int		file_len(char *path)
 	return (len);
 }
 
-char	*filetostr(char *path, int file_length)
+char	*filetostr(char *path)
 {
 	int		fd;
 	char	buf;
 	int		i;
     char *file;
+    int file_length;
 
+    file_length = file_len(path);
 	file = (char*)malloc(file_length + 1);
 	fd = open(path, O_RDONLY);
 	i = 0;

@@ -1,15 +1,26 @@
 #include "tetris.h"
 
-int valid_box(char **box)
+static int touch_check(char **box, int i, int k)
+{
+    int touch;
+
+    touch = 0;
+    if (k > 0 && box[i][k - 1] == '#')
+        touch++;
+    if (k < 3 && box[i][k + 1] == '#')
+        touch++;
+    if (i > 0 && box[i - 1][k] == '#')
+        touch++;
+    if (i < 3 && box[i + 1][k] == '#')
+        touch++;
+    return (touch);
+}
+
+int valid_box(char **box, int flag, int dub_touch, int touch)
 {
     int i;
     int k;
-    int dub_touch;
-    int touch;
-    int flag;
 
-    flag = 0;
-    dub_touch = 0;
     i = 0;
     while (i < 4)
     {
@@ -18,21 +29,10 @@ int valid_box(char **box)
         {
             if (box[i][k] == '#')
             {
-                touch = 0;
-                if (k > 0 && box[i][k - 1] == '#')
-                    touch++;
-                if (k < 3 && box[i][k + 1] == '#')
-                    touch++;
-                if (i > 0 && box[i - 1][k] == '#')
-                    touch++;
-                if (i < 3 && box[i + 1][k] == '#')
-                    touch++;
+                touch = touch_check(box, i, k);
                 if (touch > 1)
-                {
                     dub_touch++;
-                    flag++;
-                }
-                else if (touch == 1)
+                if (touch >= 1)
                     flag++;
                 else if (touch == 0)
                     return (0);
@@ -51,7 +51,7 @@ int valid_all_box(char ***box, int box_count)
     i = 0;
     while (i < box_count)
     {
-        if (!valid_box(box[i]))
+        if (!valid_box(box[i], 0, 0, 0))
             return (0);
         i++;
     }

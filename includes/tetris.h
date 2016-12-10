@@ -9,7 +9,7 @@
 #include <fcntl.h>
 
 int	valid_file(char *file);
-int	valid_box(char **box);
+int valid_box(char **box, int flag, int dub_touch, int touch);
 char *place_piece(char *board, char **piece, int pos, int order);
 int	get_board_size(char *board);
 int	is_safe(char *board, char **piece, int pos, int size);
@@ -20,6 +20,6 @@ char **rand_piece();
 char *d2_to_d1(char **box);
 char **make_two_Dim(char *onedim, int i);
 int		file_len(char *path);
-char	*filetostr(char *path, int file_length);
+char	*filetostr(char *path);
 
 #endif
