@@ -9,6 +9,7 @@ char *d2_to_d1(char **box)
 
     i = 0;
     j = 0;
+    k = 0;
     a = (char *)malloc(sizeof(char)* 26);
     while (i < 4)
     {

@@ -50,7 +50,7 @@ int main()
     //char *file = "##..\n##..\n....\n....\n\n##..\n#...\n#...\n....\n";
     //char newboard[100] = "...\n...\n...\n";
     //char    newboard[100] = "#####\n##.##\n##.##\n#..##\n#####\n";
-    //char newboard[100] = ".....\n.....\n.....\n.....\n.....\n";
+    char newboard[100] = "......\n......\n......\n......\n......\n";
     int file_length = file_len(path);
     //printf("%i", file_length);
     file = filetostr(path, file_length);
@@ -65,35 +65,39 @@ int main()
             j = 0;
             while (j < 4)
             {
-                printf("%s\n", box[i][j]);
+                //printf("%s\n", box[i][j]);
                 j++;
             }
-            printf("\n");
-            if (valid_all_box(box, i + 1))
+            //printf("\n");
+            /*if (valid_all_box(box, i + 1))
                 printf("box %i is valid\n", i + 1);
             else
-                printf("box %i is invalid\n", i + 1);
+                printf("box %i is invalid\n", i + 1);*/
             i++;
         }
     }
     else{
         printf("invalid file\n");
     }
- /*   int f;
+    int f;
+    int pos;
+
+    char *tmp;
+    printf("Pos: ");
+    scanf("%i", &pos);
+    printf("Box: ");
     scanf("%i", &f);
-    if (is_safe(newboard, box[f], 8, 5))
-        printf("%s\n", place_piece(newboard, box[f], 8, 5, 1));
-    printf("random num: \n");
-    int k;
-    for (k = 0; k < 4; k++)
+    if (is_safe(newboard, box[f], pos, 6))
     {
-        printf("%i\n", rand() % 19);
+        printf("piece is safe\n");
+        place_piece(newboard, box[f], pos, f + 1);
     }
-    //char **y = rand_piece();
-    //char *z = d2_to_d1(y);
-    //printf("%s\n", z);
-  //  char **z;
-   // z = rand_piece();
-   // printf("%s\n", d2_to_d1(z));*/
+    else
+    {
+        printf("piece is not safe\n");
+    }
+    tmp = d2_to_d1(box[f]);
+    newboard[pos] = '$';
+    printf("board:\n%s\npiece:\n%s", newboard, tmp);
     return (1);
 }
