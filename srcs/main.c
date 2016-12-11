@@ -36,27 +36,6 @@ int main()
     else{
         printf("invalid file\n");
     }
-    printf("\nSolvedBoard:\n%s\n", board_solver(box, 10));
-    //place_piece
-    /*int f;
-    int pos;
-
-    char *tmp;
-    printf("Pos: ");
-    scanf("%i", &pos);
-    printf("Box: ");
-    scanf("%i", &f);
-    if (is_safe(newboard, box[f], pos, 6))
-    {
-        printf("piece is safe\n");
-        place_piece(newboard, box[f], pos, f + 1);
-    }
-    else
-    {
-        printf("piece is not safe\n");
-    }
-    tmp = d2_to_d1(box[f]);
-    newboard[pos] = '$';
-    printf("board:\n%s\npiece:\n%s", newboard, tmp);*/
+    printf("\nSolvedBoard:\n%s\n", board_solver(box, 26));
     return (1);
 }

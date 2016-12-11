@@ -33,11 +33,11 @@ char *ft_board_solver(char ***pieces, int start, int max, int pos, int size)
         else
             pos++;
     }
-    if (j == max - 1)
+    if (j == max)
         return (board);
     return (NULL);
 }
-
+/*
 char *board_solver(char ***pieces, int max)
 {
 
@@ -63,4 +63,31 @@ char *board_solver(char ***pieces, int max)
         }
     }
     return (NULL);
+}*/
+char *board_solver(char ***pieces, int max)
+{
+
+    int size;
+    int start;
+    char *board;
+    int pos;
+    size = 0;
+    while (1)
+    {
+        size++;
+        pos = 0;
+        while (pos < ((size + 1) * size))
+        {
+            start = 0;
+            while (start < max)
+            {
+                if ((board = ft_board_solver(pieces, start, max, pos, size)))
+                    return (board);
+                start++;
+            }
+            pos++;
+        }
+    }
+    return (NULL);
 }
+
