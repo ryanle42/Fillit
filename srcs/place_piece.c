@@ -8,11 +8,11 @@ char    *place_piece(char *board, char **piece, int pos, int order)
     int k;
     int size;
 
+    size = get_board_size(board);
     block = 4;
     i = 0;
     j = 0;
     k = 0;
-    size = get_board_size(board);
     while (piece[i][j] != '#')
     {
         j++;

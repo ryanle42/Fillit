@@ -34,7 +34,7 @@ int     is_safe(char *board, char **piece, int pos, int size)
     if (board[pos] != '.')
         return (0);
     block--;
-    while (block > 0 && (pos < ((size * size) + size)))
+    while (block > 0 && (pos < ((size + 1) * size)))
     {
         if (j == 3)
             k--;
@@ -51,9 +51,7 @@ int     is_safe(char *board, char **piece, int pos, int size)
                 pos += (size - 4);
            }
         }
-        //printf("k: %i\n", k);
         pos += (k + 1);
-        //printf("pos: %i\n", pos);
         if (board[pos] != '.')
             return (0);
         k = 0;

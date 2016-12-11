@@ -1,9 +1,9 @@
 NAME = tetris 
 
-CC = gcc -Wall -Werror -Wextra -I includes
+CC = gcc -I includes
 
 OFILES = ./place_piece.o ./is_safe.o ./valid_box.o ./valid_file.o ./main.o ./make_3d_boxes.o \
-			./2d_to_1d.o ./random_piece_gen.o ./make_2d_box.o ./file_reader.o
+			./2d_to_1d.o ./random_piece_gen.o ./make_2d_box.o ./file_reader.o ./solver.o ./make_board.o
 
 all: $(NAME)
 
@@ -42,6 +42,13 @@ $(NAME): $(OFILES)
 
 ./file_reader.o: ./srcs/file_reader.c
 	$(CC) -c ./srcs/file_reader.c
+
+./solver.o: ./srcs/solver.c
+	$(CC) -c ./srcs/solver.c
+
+./make_board.o: ./srcs/make_board.c
+	$(CC) -c ./srcs/make_board.c
+
 clean:
 	rm -rf ./bin
 

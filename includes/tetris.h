@@ -21,5 +21,8 @@ char *d2_to_d1(char **box);
 char **make_two_Dim(char *onedim, int i);
 int		file_len(char *path);
 char	*filetostr(char *path);
-
+//test
+char *make_board(int size);
+char *board_solver(char ***pieces, int max);
+char *ft_board_solver(char ***pieces, int start, int max, int pos, int size);
 #endif
