@@ -21,6 +21,8 @@ int     is_safe(char *board, char **piece, int pos, int size)
     i = 0;
     j = 0;
     k = 0;
+    //if (pos == 51)
+        //printf("piece:\n%s\n", d2_to_d1(piece));
     while (piece[i][j] != '#')
     {
         j++;
@@ -56,6 +58,8 @@ int     is_safe(char *board, char **piece, int pos, int size)
             return (0);
         k = 0;
         block--;
-    } 
-    return (1);
+    }
+    if (block == 0)
+        return (1);
+    return (0);
 }

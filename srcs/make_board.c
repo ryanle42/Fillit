@@ -7,7 +7,7 @@ char *make_board(int size)
     int j;
     int k;
 
-    board = (char *)malloc(sizeof(char) * size * (size + 1) + 1);
+    board = (char *)malloc(sizeof(char) * (size * (size + 1)) + 1);
     i = 0;
     k = 0;
     while (k < size)
