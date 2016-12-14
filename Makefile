@@ -3,7 +3,8 @@ NAME = tetris
 CC = gcc -I includes
 
 OFILES = ./place_piece.o ./is_safe.o ./valid_box.o ./valid_file.o ./main.o ./make_3d_boxes.o \
-			./2d_to_1d.o ./random_piece_gen.o ./make_2d_box.o ./file_reader.o ./solver.o ./make_board.o
+			./2d_to_1d.o ./random_piece_gen.o ./make_2d_box.o ./file_reader.o ./solver.o ./make_board.o \
+			./copy_board.o
 
 all: $(NAME)
 
@@ -48,6 +49,9 @@ $(NAME): $(OFILES)
 
 ./make_board.o: ./srcs/make_board.c
 	$(CC) -c ./srcs/make_board.c
+
+./copy_board.o: ./srcs/copy_board.o
+	$(CC) -c ./srcs/copy_board.c
 
 clean:
 	rm -rf ./bin

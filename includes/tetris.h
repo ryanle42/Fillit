@@ -7,6 +7,7 @@
 #include <sys/stat.h> 
 #include <unistd.h>
 #include <fcntl.h>
+#include <string.h>
 
 int	valid_file(char *file);
 int valid_box(char **box, int flag, int dub_touch, int touch);
@@ -24,5 +25,6 @@ char	*filetostr(char *path);
 //test
 char *make_board(int size);
 char *board_solver(char ***pieces, int max);
-char *ft_board_solver(char ***pieces, int start, int max, int pos, int size);
+char    *fill_board(char *board, char ***pieces, int num_pieces, int size);
+char *copy_board(char *board);
 #endif

@@ -17,7 +17,7 @@ int main()
         box_count = count_box(file);
         printf("valid file\n");
         box = make_3d_box(file);
-        while (i < box_count)
+        /*while (i < box_count)
         {
             j = 0;
             while (j < 4)
@@ -35,7 +35,8 @@ int main()
     }
     else{
         printf("invalid file\n");
+    }*/
+        printf("\nSolvedBoard:\n%s\n", board_solver(box, 11));
     }
-    printf("\nSolvedBoard:\n%s\n", board_solver(box, 26));
     return (1);
 }

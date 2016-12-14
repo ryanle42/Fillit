@@ -7,7 +7,8 @@ int		file_len(char *path)
 	int		len;
 	int		status;
 
-	fd = open(path, O_RDONLY);
+	if (!(fd = open(path, O_RDONLY)))
+		return (0);
 	len = 0;
 	while ((status = read(fd, &buf, 1)) > 0)
 	{
@@ -29,7 +30,8 @@ char	*filetostr(char *path)
 
     file_length = file_len(path);
 	file = (char*)malloc(file_length + 1);
-	fd = open(path, O_RDONLY);
+	if (!(fd = open(path, O_RDONLY)))
+		return (0);
 	i = 0;
 	while (read(fd, &buf, 1))
 	{
