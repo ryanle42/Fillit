@@ -11,26 +11,26 @@ char    *fill_board(char *board, char ***pieces, int num_pieces, int size)
     save_board = (char **)malloc(sizeof(char *) * num_pieces);
 	current_piece = 0;
     pos = 0;
-	while (1)
+	while ((pos < (size + 1) *size - 1) || current_piece != 0)
 	{
-		if ((board[pos] == '.') && (is_safe(board, pieces[current_piece], pos, size)))
+		if ((board[pos] == '.') && (is_safe(board, pieces[current_piece], pos, size))) // is safe
 		{
-            save_board[current_piece] = copy_board(board);
-            save_pos[current_piece] = pos;
+            save_board[current_piece] = copy_board(board); // save board pre-place
+            save_pos[current_piece] = pos;                 // safe pos pre-place
 			board = place_piece(board, pieces[current_piece], pos, current_piece + 1);
 			if (++current_piece == num_pieces) // board solved!!
 				return (board);
             pos = -1;
 		}
         pos++;
-        if ((pos >= (size + 1) *size - 1) && current_piece == 0)
+        if ((pos >= (size + 1) *size - 1) && current_piece == 0) // All possibilities fail
         {
             free(board);
             free(save_board);
             free(save_pos);
             return (NULL);
         }
-        if ((pos >= (size + 1) * size - 1))
+        if ((pos >= (size + 1) * size - 1)) // backtrack piece
         {
             current_piece--;
             pos = (save_pos[current_piece] + 1);

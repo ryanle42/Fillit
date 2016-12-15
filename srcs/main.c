@@ -9,8 +9,8 @@ int main()
     int box_count;
     //char *path = "tetriminos_file";
     //char newboard[100] = "....##\n.#.#..\n.###..\n..#...\n.....#\n";
-
-    file = filetostr("tetriminos_file");
+    if (!(file = filetostr("tetriminos_file")))
+        return (0);
     i = 0;
     if (valid_file(file))
     {
